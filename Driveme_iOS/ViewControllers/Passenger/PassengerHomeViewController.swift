@@ -1,17 +1,19 @@
 //
-//  PassengerViewController.swift
+//  PassengerHomeViewController.swift
 //  Driveme_iOS
 //
-//  Created by Aditya on 2024-07-18.
+//  Created by Aditya on 2024-07-31.
 //
 
 import UIKit
+import MapKit
 
-class PassengerViewController: UIViewController {
+class PassengerHomeViewController: UIViewController {
+    
+    @IBOutlet weak var mapView: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(FileManager.default.urls(for:.documentDirectory, in: .userDomainMask))
 
         // Do any additional setup after loading the view.
     }

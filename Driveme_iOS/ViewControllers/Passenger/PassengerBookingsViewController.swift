@@ -1,13 +1,13 @@
 //
-//  DriverViewController.swift
+//  PassengerBookingsViewController.swift
 //  Driveme_iOS
 //
-//  Created by Aditya on 2024-07-18.
+//  Created by Aditya on 2024-07-31.
 //
 
 import UIKit
 
-class DriverViewController: UIViewController {
+class PassengerBookingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
