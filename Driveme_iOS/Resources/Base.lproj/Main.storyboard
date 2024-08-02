@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -277,37 +278,37 @@ on hourly basis.</string>
             </objects>
             <point key="canvasLocation" x="2591.6030534351144" y="-27.464788732394368"/>
         </scene>
-        <!--Item 2-->
+        <!--Profile-->
         <scene sceneID="UMl-gm-3jV">
             <objects>
-                <viewController id="99L-v1-Tq5" sceneMemberID="viewController">
+                <viewController id="99L-v1-Tq5" customClass="DriverProfileViewController" customModule="Driveme_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5uJ-Me-jGA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="SjW-0B-EE4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="wD1-dM-CMW"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="wD1-dM-CMW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wG7-5J-djc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5213" y="575"/>
+            <point key="canvasLocation" x="6233" y="575"/>
         </scene>
-        <!--Item 1-->
+        <!--Requests-->
         <scene sceneID="9Ak-EJ-rqA">
             <objects>
-                <viewController id="Ozb-Tb-VuZ" sceneMemberID="viewController">
+                <viewController id="Ozb-Tb-VuZ" customClass="DriverRequestsViewController" customModule="Driveme_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lts-C9-xYQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="FJA-XB-RzV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="Ewm-92-nTo"/>
+                    <tabBarItem key="tabBarItem" title="Requests" image="steeringwheel" catalog="system" id="Ewm-92-nTo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsh-bb-Zsh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4460" y="575"/>
+            <point key="canvasLocation" x="5497" y="575"/>
         </scene>
         <!--Driver Tab Bar Controller-->
         <scene sceneID="CcM-B4-U9F">
@@ -325,51 +326,61 @@ on hourly basis.</string>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNp-9A-4eW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3689" y="575"/>
+            <point key="canvasLocation" x="4709" y="575"/>
         </scene>
-        <!--Item 2-->
+        <!--Home-->
         <scene sceneID="DpX-LT-7Ia">
             <objects>
-                <viewController id="ofY-J5-pg3" sceneMemberID="viewController">
+                <viewController id="ofY-J5-pg3" customClass="PassengerHomeViewController" customModule="Driveme_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bbQ-W8-qqX">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWG-RY-bsH">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="757"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="fSa-Og-kJ8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="IA4-XA-ypm"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="map" catalog="system" id="IA4-XA-ypm"/>
+                    <connections>
+                        <outlet property="mapView" destination="wWG-RY-bsH" id="gMh-8L-7WH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5S-2O-Gjf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6233" y="-468"/>
+            <point key="canvasLocation" x="6232.8244274809158" y="-468.3098591549296"/>
         </scene>
-        <!--Item 1-->
+        <!--Bookings-->
         <scene sceneID="nzU-QL-Ixi">
             <objects>
-                <viewController id="Vgu-eb-30w" sceneMemberID="viewController">
+                <viewController id="Vgu-eb-30w" customClass="PassengerBookingsViewController" customModule="Driveme_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HBw-xT-Dtx">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0EZ-ww-ob1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="gPf-78-i3T"/>
+                    <tabBarItem key="tabBarItem" title="Bookings" image="steeringwheel" catalog="system" id="gPf-78-i3T"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiJ-f5-gPK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4755" y="-467"/>
         </scene>
-        <!--Item-->
+        <!--Profile-->
         <scene sceneID="wo5-GT-N4K">
             <objects>
-                <viewController id="Nrr-0F-WrE" sceneMemberID="viewController">
+                <viewController id="Nrr-0F-WrE" customClass="PassengerProfileViewController" customModule="Driveme_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DMU-dk-1qb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="BDO-rN-DAs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="hq2-fr-K5I"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="hq2-fr-K5I"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubO-DF-SYQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -418,6 +429,9 @@ on hourly basis.</string>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="login" width="333" height="216"/>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="steeringwheel" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
