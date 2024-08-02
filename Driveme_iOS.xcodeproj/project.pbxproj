@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		960CE1442C5D588F00E080FB /* PassengerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE1432C5D588F00E080FB /* PassengerTabBarController.swift */; };
+		960CE1462C5D58A400E080FB /* DriverTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE1452C5D58A400E080FB /* DriverTabBarController.swift */; };
 		96A760332C49C29D00F858BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A760322C49C29C00F858BB /* LoginViewController.swift */; };
-		96A760352C49C91200F858BB /* PassengerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A760342C49C91200F858BB /* PassengerViewController.swift */; };
-		96A760372C49CA8900F858BB /* DriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A760362C49CA8900F858BB /* DriverViewController.swift */; };
 		96C9A7222C48810A006ABB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A7212C48810A006ABB2C /* AppDelegate.swift */; };
 		96C9A7242C48810A006ABB2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A7232C48810A006ABB2C /* SceneDelegate.swift */; };
 		96C9A7262C48810A006ABB2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A7252C48810A006ABB2C /* ViewController.swift */; };
@@ -21,9 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		960CE1432C5D588F00E080FB /* PassengerTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PassengerTabBarController.swift; path = ../PassengerTabBarController.swift; sourceTree = "<group>"; };
+		960CE1452C5D58A400E080FB /* DriverTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DriverTabBarController.swift; path = ../DriverTabBarController.swift; sourceTree = "<group>"; };
 		96A760322C49C29C00F858BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		96A760342C49C91200F858BB /* PassengerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerViewController.swift; sourceTree = "<group>"; };
-		96A760362C49CA8900F858BB /* DriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewController.swift; sourceTree = "<group>"; };
 		96C9A71E2C48810A006ABB2C /* Driveme_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Driveme_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9A7212C48810A006ABB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96C9A7232C48810A006ABB2C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,8 +53,6 @@
 				96C9A7252C48810A006ABB2C /* ViewController.swift */,
 				96C9A7382C48D406006ABB2C /* RegistrationViewController.swift */,
 				96A760322C49C29C00F858BB /* LoginViewController.swift */,
-				96A760342C49C91200F858BB /* PassengerViewController.swift */,
-				96A760362C49CA8900F858BB /* DriverViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +113,8 @@
 				96A760392C49D95D00F858BB /* Resources */,
 				96C9A7212C48810A006ABB2C /* AppDelegate.swift */,
 				96C9A7232C48810A006ABB2C /* SceneDelegate.swift */,
+				960CE1432C5D588F00E080FB /* PassengerTabBarController.swift */,
+				960CE1452C5D58A400E080FB /* DriverTabBarController.swift */,
 				96A760382C49D81E00F858BB /* ViewControllers */,
 				96C9A72A2C48810A006ABB2C /* Driveme_iOS.xcdatamodeld */,
 				96C9A7322C48810C006ABB2C /* Info.plist */,
@@ -193,14 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96A760372C49CA8900F858BB /* DriverViewController.swift in Sources */,
 				96A760332C49C29D00F858BB /* LoginViewController.swift in Sources */,
 				96C9A7262C48810A006ABB2C /* ViewController.swift in Sources */,
 				96C9A7222C48810A006ABB2C /* AppDelegate.swift in Sources */,
+				960CE1462C5D58A400E080FB /* DriverTabBarController.swift in Sources */,
 				96C9A72C2C48810A006ABB2C /* Driveme_iOS.xcdatamodeld in Sources */,
 				96C9A7242C48810A006ABB2C /* SceneDelegate.swift in Sources */,
 				96C9A7392C48D406006ABB2C /* RegistrationViewController.swift in Sources */,
-				96A760352C49C91200F858BB /* PassengerViewController.swift in Sources */,
+				960CE1442C5D588F00E080FB /* PassengerTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

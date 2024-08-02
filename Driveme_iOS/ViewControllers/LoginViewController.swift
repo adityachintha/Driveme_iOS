@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
@@ -65,11 +66,12 @@ class LoginViewController: UIViewController {
     func navigateToRoleBasedScreen (role:String) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if role == "Passenger"{
-            if let passengerVC = storyboard.instantiateViewController(withIdentifier: "PassengerViewController") as? PassengerViewController {
+            
+            if let passengerVC = storyboard.instantiateViewController(withIdentifier: "PassengerTabBarController") as? PassengerTabBarController {
                 navigationController?.pushViewController(passengerVC, animated: true)
             }
         } else {
-            if let driverVC = storyboard.instantiateViewController(withIdentifier: "DriverViewController") as? DriverViewController {
+            if let driverVC = storyboard.instantiateViewController(withIdentifier: "DriverTabBarController") as? DriverTabBarController {
                 navigationController?.pushViewController(driverVC, animated: true)
             }
         }
