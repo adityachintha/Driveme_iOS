@@ -8,11 +8,17 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
+    @IBOutlet weak var pickupTextField: UITextField!
+    @IBOutlet weak var dropOffTextField: UITextField!
     @IBOutlet weak var mapView: MKMapView!
+    
     let locationManager = CLLocationManager()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +27,94 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
                 
-                // Request location access
-                locationManager.requestWhenInUseAuthorization()
+         // Request location access
+        locationManager.requestWhenInUseAuthorization()
                 
-                // Start updating location
-                locationManager.startUpdatingLocation()
+         // Start updating location
+        locationManager.startUpdatingLocation()
                 
-                // Show user location on the map
-                mapView.showsUserLocation = true
+         // Show user location on the map
+        mapView.showsUserLocation = true
 
-        // Do any additional setup after loading the view.
+       
     }
+    
+    
+    @IBAction func scheduleNowButtonTapped(_ sender: Any) {
+        presentRideDetailsPopup()
+        
+    }
+    
+    func presentRideDetailsPopup() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let rideDetailsVC = storyboard.instantiateViewController(withIdentifier: "RideDetailsViewController") as? RideDetailsViewController {
+            
+            rideDetailsVC.pickupLocation = pickupTextField.text ?? ""
+            rideDetailsVC.dropOffLocation = dropOffTextField.text ?? ""
+            rideDetailsVC.passengerName = fetchPassengerName() // Pass the passenger name
+            
+            rideDetailsVC.saveDetailsCallback = { [weak self] carModel, transmission, date in
+                self?.saveRideDetails(carModel: carModel, transmission: transmission, date: date)
+            }
+           
+            
+            print("Pickup Location: \(pickupTextField.text ?? "nil")")
+            print("Drop Off Location: \(dropOffTextField.text ?? "nil")")
+            
+
+            navigationController?.pushViewController(rideDetailsVC, animated: true)
+
+        }
+    }
+        
+    
+    func saveRideDetails(carModel: String, transmission: String, date: Date) {
+            let pickupLocation = pickupTextField.text ?? ""
+            let dropOffLocation = dropOffTextField.text ?? ""
+            
+            let passengerName = fetchPassengerName()
+            
+            let newRide = Ride(context: context)
+            newRide.pickupLocation = pickupLocation
+            newRide.dropOffLocation = dropOffLocation
+            newRide.passengerName = passengerName
+            newRide.carModel = carModel
+            newRide.carTransmission = transmission
+            newRide.date = date
+
+            
+            do {
+                try context.save()
+              
+            } catch{
+                print("Failed to Save Ride:\(error)")
+            }
+            
+        }
+    
+    
+    
+    func fetchPassengerName() -> String {
+        let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
+        let email = "adityachintha@gmail.com"
+        fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+        do {
+            let users = try context.fetch(fetchRequest)
+            if let passengerName = users.first?.name {
+                print("Fetched Passenger Name: \(passengerName)")
+                return passengerName
+            } else {
+                print("No user found with email: \(email)")
+                return "Unknown"
+            }
+        } catch {
+            print("Failed to fetch user: \(error)")
+            return "Unknown"
+        }
+    }
+    
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             if let userLocation = locations.first {
@@ -53,15 +136,4 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
                 fatalError()
             }
         }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

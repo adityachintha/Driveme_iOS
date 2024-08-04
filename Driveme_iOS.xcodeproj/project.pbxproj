@@ -14,6 +14,10 @@
 		960CE14C2C5D64F000E080FB /* PassengerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE14B2C5D64F000E080FB /* PassengerProfileViewController.swift */; };
 		960CE14E2C5D651200E080FB /* DriverProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE14D2C5D651200E080FB /* DriverProfileViewController.swift */; };
 		960CE1502C5D652600E080FB /* DriverRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE14F2C5D652600E080FB /* DriverRequestsViewController.swift */; };
+		960CE15A2C5D7A3300E080FB /* RideDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE1592C5D7A3300E080FB /* RideDetailsViewController.swift */; };
+		960CE15C2C5D81F900E080FB /* DriverListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE15B2C5D81F900E080FB /* DriverListViewController.swift */; };
+		960CE15E2C5D8BD200E080FB /* DriverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960CE15D2C5D8BD200E080FB /* DriverTableViewCell.swift */; };
+		961D22022C5EFDCB009798B0 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D22012C5EFDCB009798B0 /* SuccessViewController.swift */; };
 		96A760332C49C29D00F858BB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A760322C49C29C00F858BB /* LoginViewController.swift */; };
 		96C9A7222C48810A006ABB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A7212C48810A006ABB2C /* AppDelegate.swift */; };
 		96C9A7242C48810A006ABB2C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A7232C48810A006ABB2C /* SceneDelegate.swift */; };
@@ -33,6 +37,10 @@
 		960CE14B2C5D64F000E080FB /* PassengerProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerProfileViewController.swift; sourceTree = "<group>"; };
 		960CE14D2C5D651200E080FB /* DriverProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProfileViewController.swift; sourceTree = "<group>"; };
 		960CE14F2C5D652600E080FB /* DriverRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRequestsViewController.swift; sourceTree = "<group>"; };
+		960CE1592C5D7A3300E080FB /* RideDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideDetailsViewController.swift; sourceTree = "<group>"; };
+		960CE15B2C5D81F900E080FB /* DriverListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverListViewController.swift; sourceTree = "<group>"; };
+		960CE15D2C5D8BD200E080FB /* DriverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewCell.swift; sourceTree = "<group>"; };
+		961D22012C5EFDCB009798B0 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 		96A760322C49C29C00F858BB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96C9A71E2C48810A006ABB2C /* Driveme_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Driveme_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9A7212C48810A006ABB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +76,10 @@
 				960CE14B2C5D64F000E080FB /* PassengerProfileViewController.swift */,
 				960CE14D2C5D651200E080FB /* DriverProfileViewController.swift */,
 				960CE14F2C5D652600E080FB /* DriverRequestsViewController.swift */,
+				960CE1592C5D7A3300E080FB /* RideDetailsViewController.swift */,
+				960CE15B2C5D81F900E080FB /* DriverListViewController.swift */,
+				960CE15D2C5D8BD200E080FB /* DriverTableViewCell.swift */,
+				961D22012C5EFDCB009798B0 /* SuccessViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -211,12 +223,16 @@
 				960CE14E2C5D651200E080FB /* DriverProfileViewController.swift in Sources */,
 				960CE1482C5D64B700E080FB /* PassengerHomeViewController.swift in Sources */,
 				96A760332C49C29D00F858BB /* LoginViewController.swift in Sources */,
+				960CE15E2C5D8BD200E080FB /* DriverTableViewCell.swift in Sources */,
+				960CE15C2C5D81F900E080FB /* DriverListViewController.swift in Sources */,
 				960CE1502C5D652600E080FB /* DriverRequestsViewController.swift in Sources */,
 				96C9A7262C48810A006ABB2C /* ViewController.swift in Sources */,
 				960CE14A2C5D64D900E080FB /* PassengerBookingsViewController.swift in Sources */,
 				96C9A7222C48810A006ABB2C /* AppDelegate.swift in Sources */,
+				961D22022C5EFDCB009798B0 /* SuccessViewController.swift in Sources */,
 				960CE1462C5D58A400E080FB /* DriverTabBarController.swift in Sources */,
 				960CE14C2C5D64F000E080FB /* PassengerProfileViewController.swift in Sources */,
+				960CE15A2C5D7A3300E080FB /* RideDetailsViewController.swift in Sources */,
 				96C9A72C2C48810A006ABB2C /* Driveme_iOS.xcdatamodeld in Sources */,
 				96C9A7242C48810A006ABB2C /* SceneDelegate.swift in Sources */,
 				96C9A7392C48D406006ABB2C /* RegistrationViewController.swift in Sources */,
