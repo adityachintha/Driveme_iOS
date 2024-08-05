@@ -36,13 +36,10 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
          // Show user location on the map
         mapView.showsUserLocation = true
 
-       
     }
-    
     
     @IBAction func scheduleNowButtonTapped(_ sender: Any) {
         presentRideDetailsPopup()
-        
     }
     
     func presentRideDetailsPopup() {
@@ -58,8 +55,8 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
             }
            
             
-            print("Pickup Location: \(pickupTextField.text ?? "nil")")
-            print("Drop Off Location: \(dropOffTextField.text ?? "nil")")
+            print("Pickup Location In Home: \(pickupTextField.text ?? "nil")")
+            print("Drop Off Location In Home: \(dropOffTextField.text ?? "nil")")
             
 
             navigationController?.pushViewController(rideDetailsVC, animated: true)
@@ -81,10 +78,15 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
             newRide.carModel = carModel
             newRide.carTransmission = transmission
             newRide.date = date
-
+            newRide.status = "Initiated"
+            
+            
+            print("Passenger Name: \(passengerName)")
+            print("Saving Ride with details: \(newRide)")
             
             do {
                 try context.save()
+                print("Ride saved successfully!")
               
             } catch{
                 print("Failed to Save Ride:\(error)")
@@ -96,15 +98,20 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
     
     func fetchPassengerName() -> String {
         let fetchRequest: NSFetchRequest<User> = User.fetchRequest()
-        let email = "adityachintha@gmail.com"
-        fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+        if let currentUserEmail = UserDefaults.standard.string(forKey: "currentUserEmail") {
+            fetchRequest.predicate = NSPredicate(format: "email == %@", currentUserEmail)
+        } else {
+                return "Unknown"
+                }
+        
+        
         do {
             let users = try context.fetch(fetchRequest)
             if let passengerName = users.first?.name {
                 print("Fetched Passenger Name: \(passengerName)")
                 return passengerName
             } else {
-                print("No user found with email: \(email)")
+                print("No user found with email")
                 return "Unknown"
             }
         } catch {

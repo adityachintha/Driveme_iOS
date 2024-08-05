@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         let role = selectedRoleIndex == 0 ? "Passenger" : "Driver"
         
         if authenticateUser(email: email, password: password, role: role){
+            UserDefaults.standard.set(email, forKey: "currentUserEmail")
             navigateToRoleBasedScreen(role: role)
         } else {
             showAlert(message: "Email or Password  or Role Selection is Incorrect")

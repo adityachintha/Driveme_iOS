@@ -23,6 +23,7 @@ class SuccessViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+
     
     var ride: Ride?
     
@@ -38,6 +39,21 @@ class SuccessViewController: UIViewController {
                     driverNameLabel.text = ride.driverName
                     statusLabel.text = ride.status
                 }
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+                    self.goToBookings()
+                }
             }
     
+    func goToBookings() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if let bookingsVC = storyboard.instantiateViewController(withIdentifier: "PassengerBookingsViewController") as? PassengerBookingsViewController {
+                bookingsVC.modalTransitionStyle = .crossDissolve
+                bookingsVC.modalPresentationStyle = .fullScreen
+                self.present(bookingsVC, animated: true, completion: nil)
+            }
+        }
+    
+    
+   
 }

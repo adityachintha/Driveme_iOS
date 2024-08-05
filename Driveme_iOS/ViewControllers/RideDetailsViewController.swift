@@ -48,6 +48,7 @@ class RideDetailsViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let driverListVC = storyboard.instantiateViewController(withIdentifier: "DriverListViewController") as? DriverListViewController {
                         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                        
                         let newRide = Ride(context: context)
                         newRide.pickupLocation = pickupLocation
                         newRide.dropOffLocation = dropOffLocation
@@ -55,6 +56,8 @@ class RideDetailsViewController: UIViewController, UIPickerViewDelegate, UIPicke
                         newRide.carTransmission = selectedTransmission
                         newRide.date = selectedDate
                         newRide.passengerName = passengerName
+                        newRide.status = "Initiated"
+                        
                         driverListVC.context = context
                         driverListVC.newRide = newRide
                         navigationController?.pushViewController(driverListVC, animated: true)

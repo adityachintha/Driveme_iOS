@@ -71,5 +71,25 @@ class DriverListViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//            // Assuming this method is triggered when a driver is selected
+//            if let ride = newRide {
+//                navigateToSuccess(ride: ride)
+//            }
+//        }
+//
+//    func navigateToSuccess(ride: Ride) {
+//        // Pop to root view controller
+//        navigationController?.popToRootViewController(animated: false)
+//        
+//        // Now push the SuccessViewController
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            if let successVC = storyboard.instantiateViewController(withIdentifier: "SuccessViewController") as? SuccessViewController {
+//                successVC.ride = ride
+//                self.navigationController?.pushViewController(successVC, animated: true)
+//            }
+//        }
+//    }
 }
