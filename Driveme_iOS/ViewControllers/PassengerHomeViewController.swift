@@ -46,26 +46,15 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let rideDetailsVC = storyboard.instantiateViewController(withIdentifier: "RideDetailsViewController") as? RideDetailsViewController {
             
-            rideDetailsVC.pickupLocation = pickupTextField.text ?? ""
-            rideDetailsVC.dropOffLocation = dropOffTextField.text ?? ""
-            rideDetailsVC.passengerName = fetchPassengerName() // Pass the passenger name
-            
-            rideDetailsVC.saveDetailsCallback = { [weak self] carModel, transmission, date in
-                self?.saveRideDetails(carModel: carModel, transmission: transmission, date: date)
-            }
-           
-            
-            print("Pickup Location In Home: \(pickupTextField.text ?? "nil")")
-            print("Drop Off Location In Home: \(dropOffTextField.text ?? "nil")")
-            
-
+            let newRide = createNewRide()
+            rideDetailsVC.ride = newRide
             navigationController?.pushViewController(rideDetailsVC, animated: true)
 
         }
     }
         
     
-    func saveRideDetails(carModel: String, transmission: String, date: Date) {
+    func createNewRide() -> Ride {
             let pickupLocation = pickupTextField.text ?? ""
             let dropOffLocation = dropOffTextField.text ?? ""
             
@@ -75,22 +64,13 @@ class PassengerHomeViewController: UIViewController, CLLocationManagerDelegate, 
             newRide.pickupLocation = pickupLocation
             newRide.dropOffLocation = dropOffLocation
             newRide.passengerName = passengerName
-            newRide.carModel = carModel
-            newRide.carTransmission = transmission
-            newRide.date = date
             newRide.status = "Initiated"
             
             
+            print("Created new Ride with details: \(newRide)")
             print("Passenger Name: \(passengerName)")
-            print("Saving Ride with details: \(newRide)")
             
-            do {
-                try context.save()
-                print("Ride saved successfully!")
-              
-            } catch{
-                print("Failed to Save Ride:\(error)")
-            }
+            return newRide
             
         }
     

@@ -17,13 +17,7 @@ class RideDetailsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var carModels = ["Sedan", "Hatchback","Cruiser", "Limo", "Mini"]
     var transmissions = ["Automatic", "Manual", "Semi-Automatic"]
     
-    var saveDetailsCallback: ((String, String, Date) -> Void)?
-    
-    var pickupLocation: String?
-    var dropOffLocation: String?
-    var passengerName: String?
-    
-
+    var ride: Ride?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,28 +32,25 @@ class RideDetailsViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
 
     @IBAction func nextButtonTapped(_ sender: Any) {
+        
+        guard let ride = ride else {
+                    print("No ride available to update")
+                    return
+                }
         let selectedCarModel = carModels[carModelPicker.selectedRow(inComponent: 0)]
         let selectedTransmission = transmissions[transmissionPicker.selectedRow(inComponent: 0)]
         let selectedDate = datePicker.date
         
-        saveDetailsCallback?(selectedCarModel, selectedTransmission, selectedDate)
+        ride.carModel = selectedCarModel
+        ride.carTransmission = selectedTransmission
+        ride.date = selectedDate
         
-        if let pickupLocation = pickupLocation, let dropOffLocation = dropOffLocation, let passengerName = passengerName {
+        if let pickupLocation = ride.pickupLocation, let dropOffLocation = ride.dropOffLocation, let passengerName = ride.passengerName {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     if let driverListVC = storyboard.instantiateViewController(withIdentifier: "DriverListViewController") as? DriverListViewController {
-                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
                         
-                        let newRide = Ride(context: context)
-                        newRide.pickupLocation = pickupLocation
-                        newRide.dropOffLocation = dropOffLocation
-                        newRide.carModel = selectedCarModel
-                        newRide.carTransmission = selectedTransmission
-                        newRide.date = selectedDate
-                        newRide.passengerName = passengerName
-                        newRide.status = "Initiated"
-                        
-                        driverListVC.context = context
-                        driverListVC.newRide = newRide
+                        driverListVC.context = ride.managedObjectContext
+                        driverListVC.newRide = ride
                         navigationController?.pushViewController(driverListVC, animated: true)
                     }
                 } else {
