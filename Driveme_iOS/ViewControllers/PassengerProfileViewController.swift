@@ -16,6 +16,8 @@ class PassengerProfileViewController: UIViewController, UIImagePickerControllerD
     
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet weak var logoutButton: UIButton!
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var currentUser: User?
     
@@ -85,6 +87,15 @@ class PassengerProfileViewController: UIViewController, UIImagePickerControllerD
         }
     
 
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: "currentUserEmail")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    navigationController?.pushViewController(loginVC, animated: true)
+                }
+    }
     /*
     // MARK: - Navigation
 

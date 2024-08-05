@@ -15,6 +15,8 @@ class DriverProfileViewController: UIViewController, UIImagePickerControllerDele
     
     @IBOutlet weak var emailLabel: UILabel!
     
+    @IBOutlet weak var logoutButton: UIButton!
+    
     @IBOutlet weak var profileImageView: UIImageView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -84,5 +86,18 @@ class DriverProfileViewController: UIViewController, UIImagePickerControllerDele
                 }
             }
         }
+    
+    
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+        
+        UserDefaults.standard.removeObject(forKey: "currentUserEmail")
+                
+                // Navigate to login screen
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                if let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                    navigationController?.pushViewController(loginVC, animated: true)
+                }
+    }
+    
 
 }
